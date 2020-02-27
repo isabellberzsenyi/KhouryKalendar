@@ -38,9 +38,6 @@ public class Login {
 //    username label
     JLabel usernameLabel = new JLabel("USERNAME:");
     usernameLabel.setFont(f);
-//    c1.gridx = 0;
-//    c1.gridy = 1;
-//    c1.insets = new Insets(10,6,10,10);
     setConstraints(c1, 0, 1, new Insets(10,6,10,10));
     textPanel.add(usernameLabel, c1);
 
@@ -48,26 +45,17 @@ public class Login {
     username = new JTextField(30);
     c1.weightx = 1;
     c1.fill = GridBagConstraints.HORIZONTAL;
-//    c1.gridx = 1;
-//    c1.gridy = 1;
-//    c1.insets = new Insets(7,10,0,0);
     setConstraints(c1, 1, 1, new Insets(7,10,0,0));
     textPanel.add(username, c1);
 
 //    password label
     JLabel passwordLabel = new JLabel("PASSWORD:");
     passwordLabel.setFont(f);
-//    c1.gridx = 0;
-//    c1.gridy = 2;
-//    c1.insets = new Insets(10,4,10,10);
     setConstraints(c1, 0, 2, new Insets(10,4,10,10));
     textPanel.add(passwordLabel, c1);
 
 //    password text field
     password = new JPasswordField();
-//    c1.gridx = 1;
-//    c1.gridy = 2;
-//    c1.insets = new Insets(7,11,0,0);
     setConstraints(c1, 1, 2, new Insets(7,11,0,0));
     textPanel.add(password, c1);
 
