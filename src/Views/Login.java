@@ -9,24 +9,18 @@ import java.net.URISyntaxException;
 
 import javax.swing.*;
 
-public class Login {
-  JFrame frame;
-  JPanel mainPanel;
+public class Login extends JPanel{
   JTextField username;
   JTextField password;
+  ViewMain vm;
 
-  public Login() {
-    Font f = new Font("TimesRoman", Font.PLAIN, 25);
+  public Login(ViewMain vm) {
+    this.vm = vm;
 
-
-    frame = new JFrame("Login");
-    frame.setMinimumSize(new Dimension(800, 800));
-    frame.setLayout(new BorderLayout());
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setLocation(350, 0);
-
-    mainPanel = this.gridLayPanel(800,800);
-    mainPanel.setBackground(Color.WHITE);
+    this.setMaximumSize(new Dimension(800, 800));
+    this.setLayout(new GridBagLayout());
+    this.setBackground(Color.WHITE);
+    this.setBackground(Color.WHITE);
     GridBagConstraints c = new GridBagConstraints();
     c.fill = GridBagConstraints.VERTICAL;
 
@@ -37,7 +31,7 @@ public class Login {
 
 //    username label
     JLabel usernameLabel = new JLabel("USERNAME:");
-    usernameLabel.setFont(f);
+    usernameLabel.setFont(new Font("TimesRoman", Font.PLAIN, 25));
     setConstraints(c1, 0, 1, new Insets(10,6,10,10));
     textPanel.add(usernameLabel, c1);
 
@@ -50,7 +44,7 @@ public class Login {
 
 //    password label
     JLabel passwordLabel = new JLabel("PASSWORD:");
-    passwordLabel.setFont(f);
+    passwordLabel.setFont(new Font("TimesRoman", Font.PLAIN, 25));
     setConstraints(c1, 0, 2, new Insets(10,4,10,10));
     textPanel.add(passwordLabel, c1);
 
@@ -87,6 +81,9 @@ public class Login {
     c2.fill = GridBagConstraints.HORIZONTAL;
     JButton textButton = new JButton("LOGIN");
     textButton.setFont(new Font("courrier new", Font.BOLD, 20));
+    textButton.addActionListener(e -> {
+      this.vm.showScreen("schedule");
+    });
     textButton.addMouseListener(new MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent e) {
@@ -108,24 +105,19 @@ public class Login {
     textButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     textButton.setBackground(Color.RED.darker());
     textButton.setForeground(Color.WHITE);
-//    c2.gridx = 0;
-//    c2.gridy = 1;
     setConstraints(c2, 0, 1, null);
     buttonPanel.add(textButton, c2);
 
-//    c.gridx = 0;
-//    c.gridy = 2;
-//    c.insets = new Insets(20, 0, 0, 0);
-    setConstraints(c, 0, 2, new Insets(20, 0, 0, 0));
-    mainPanel.add(textPanel,c);
 
-//    c.gridy = 3;
+    setConstraints(c, 0, 2, new Insets(20, 0, 0, 0));
+    this.add(textPanel,c);
+
+
     setConstraints(c, 0, 3, null);
-    mainPanel.add(forgetLabel,c);
-//    c.gridy = 4;
+    this.add(forgetLabel,c);
+
     setConstraints(c, 0, 4, null);
-    mainPanel.add(buttonPanel,c);
-    frame.add(mainPanel);
+    this.add(buttonPanel,c);
   }
 
   JPanel gridLayPanel(int x, int y) {
@@ -134,9 +126,7 @@ public class Login {
     panel.setBackground(Color.WHITE);
     return panel;
   }
-  public void render(){
-    frame.setVisible(true);
-  }
+
   void setConstraints(GridBagConstraints constraint, int x, int y, Insets insets) {
     constraint.gridx = x;
     constraint.gridy = y;
