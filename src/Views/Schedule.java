@@ -52,7 +52,7 @@ public class Schedule extends JPanel {
     back.setOpaque(false);
     back.setContentAreaFilled(false);
     back.addActionListener(e -> {
-      this.vm.showScreen("login");
+      this.vm.showScreen("classes");
             });
     back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
@@ -155,14 +155,13 @@ public class Schedule extends JPanel {
     room.setAlignmentX(Component.CENTER_ALIGNMENT);
     button.add(room);
 
-    JLabel queue = new JLabel(bottom);
-    queue.setFont(new Font("TimesRoman", Font.PLAIN, 18));
-    queue.setAlignmentX(Component.CENTER_ALIGNMENT);
-    button.add(queue);
-
     button.setPreferredSize(new Dimension(200,100));
 
     if (active) {
+      JLabel queue = new JLabel(bottom);
+      queue.setFont(new Font("TimesRoman", Font.PLAIN, 18));
+      queue.setAlignmentX(Component.CENTER_ALIGNMENT);
+      button.add(queue);
       button.setBackground(Color.RED.darker());
       time.setForeground(Color.WHITE);
       room.setForeground(Color.WHITE);

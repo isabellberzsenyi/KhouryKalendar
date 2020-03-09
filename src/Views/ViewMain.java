@@ -9,6 +9,7 @@ public class ViewMain extends JFrame {
   private final JPanel mainPanel = new JPanel();
   public final String LOGIN = "login";
   public final String SCHEDULE = "schedule";
+  public final String CLASSES = "classes";
 
   public ViewMain() {
     this.setTitle("Khoury Kalendar");
@@ -21,9 +22,11 @@ public class ViewMain extends JFrame {
 
     JPanel schedule = new Schedule(this);
     JPanel login = new Login(this);
+    JPanel classes = new Classes(this);
 
     mainPanel.add(SCHEDULE, schedule);
     mainPanel.add(LOGIN, login);
+    mainPanel.add(CLASSES, classes);
     showScreen(LOGIN);
     setLayout(new BorderLayout());
     add(mainPanel,BorderLayout.CENTER);

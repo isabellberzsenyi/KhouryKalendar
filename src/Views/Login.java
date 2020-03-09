@@ -82,7 +82,7 @@ public class Login extends JPanel{
     JButton textButton = new JButton("LOGIN");
     textButton.setFont(new Font("courrier new", Font.BOLD, 20));
     textButton.addActionListener(e -> {
-      this.vm.showScreen("schedule");
+      this.vm.showScreen("classes");
     });
     textButton.addMouseListener(new MouseAdapter() {
       @Override

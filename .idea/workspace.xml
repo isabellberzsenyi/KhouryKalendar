@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="934e47e1-f865-47fa-8612-29bb48d1c52b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Views/Schedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/ViewMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Views/Login$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Views/Login$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Views/Login.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Views/Schedule$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Views/Schedule.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Views/ViewMain.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Views/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/KhouryKalendar/Views/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/Classes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/arrow.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/ViewMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/ViewMain.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,56 +28,92 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/Views/Schedule.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-422">
+                    <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Views/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="120" selection-start-line="120" selection-end-line="120" />
+            <state relative-caret-position="1241">
+              <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Views/Schedule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1887">
-              <caret line="111" selection-start-line="111" selection-end-line="111" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#6703#6704#0" expanded="true" />
-                <element signature="e#6765#6766#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Views/ViewMain.java">
+        <entry file="file://$PROJECT_DIR$/src/Views/Classes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+            <state relative-caret-position="255">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/BorderLayout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7140">
+              <caret line="453" column="25" selection-start-line="453" selection-start-column="25" selection-end-line="453" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/Container.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18207">
+              <caret line="1151" column="48" selection-start-line="1151" selection-start-column="48" selection-end-line="1151" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Views/ViewMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Views/plus.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Views/logo.jpg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -76,8 +121,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -117,16 +162,16 @@
         <option value="$PROJECT_DIR$/src/Views/IView.java" />
         <option value="$PROJECT_DIR$/src/Views/ScreenListener.java" />
         <option value="$PROJECT_DIR$/src/Views/ViewMain.java" />
-        <option value="$PROJECT_DIR$/src/Views/Schedule.java" />
         <option value="$PROJECT_DIR$/src/Views/Login.java" />
+        <option value="$PROJECT_DIR$/src/Views/Schedule.java" />
+        <option value="$PROJECT_DIR$/src/Views/Classes.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
-    <option name="y" value="20" />
-    <option name="width" value="1010" />
-    <option name="height" value="1025" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="948" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -134,23 +179,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="KhouryKalendar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KhouryKalendar" type="462c0819:PsiDirectoryNode" />
+              <item name="KhouryKalendar_IS4300" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KhouryKalendar_IS4300" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="KhouryKalendar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KhouryKalendar" type="462c0819:PsiDirectoryNode" />
+              <item name="KhouryKalendar_IS4300" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KhouryKalendar_IS4300" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="KhouryKalendar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KhouryKalendar" type="462c0819:PsiDirectoryNode" />
+              <item name="KhouryKalendar_IS4300" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KhouryKalendar_IS4300" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Views" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -158,6 +201,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -165,6 +210,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Views" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -214,17 +265,18 @@
       <option name="presentableId" value="Default" />
       <updated>1582493159717</updated>
       <workItem from="1582493161018" duration="19000" />
+      <workItem from="1583258864614" duration="10812000" />
+      <workItem from="1583729993279" duration="585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19000" />
+    <option name="totallyTimeSpent" value="11416000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="632" y="0" width="654" height="688" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25714287" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1952862" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -234,8 +286,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32921812" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.18106996" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.18198198" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39964476" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -293,13 +345,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/View.java" />
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/javax/swing/ImageIcon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -310,33 +356,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/logo.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/plus.png">
+    <entry file="file://$PROJECT_DIR$/src/Views/IView.java" />
+    <entry file="file://$PROJECT_DIR$/src/Views/ScreenListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/Views/arrow.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="170">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/IView.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/BorderLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        <state relative-caret-position="7140">
+          <caret line="453" column="25" selection-start-line="453" selection-start-column="25" selection-end-line="453" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/Login.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/Container.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        <state relative-caret-position="18207">
+          <caret line="1151" column="48" selection-start-line="1151" selection-start-column="48" selection-end-line="1151" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/ViewMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/plus.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/logo.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Views/Classes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -345,32 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Views/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6703#6704#0" expanded="true" />
-            <element signature="e#6765#6766#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/ScreenListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Views/ViewMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        <state relative-caret-position="-422">
+          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
