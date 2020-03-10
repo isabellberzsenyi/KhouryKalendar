@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 public class Classes extends JPanel {
-  ViewMain vm;
+  private ViewMain vm;
   private JPanel classPanel;
   private boolean ood;
   private boolean db;
@@ -19,24 +19,7 @@ public class Classes extends JPanel {
   private JButton algoButton;
   private JButton discreteButton;
 
-  private void initPage() {
-
-  }
-
-  private Classes(Classes copy) {
-    this.ood = copy.ood;
-    this.db = copy.db;
-    this.algo = copy.algo;
-    this.discrete = copy.discrete;
-  }
-
-  public Classes(ViewMain vm) {
-
-    this.ood = false;
-    this.db = false;
-    this.algo = false;
-    this.discrete = false;
-
+  private void initPage(ViewMain vm) {
     this.vm = vm;
     Font f = new Font("TimesRoman", Font.BOLD, 40);
 
@@ -105,7 +88,14 @@ public class Classes extends JPanel {
 
     this.add(header, BorderLayout.PAGE_START);
     this.add(content, BorderLayout.CENTER);
+  }
 
+  public Classes(ViewMain vm) {
+    this.ood = false;
+    this.db = false;
+    this.algo = false;
+    this.discrete = false;
+    this.initPage(vm);
   }
 
   JPanel gridLayPanel(int x, int y) {
@@ -143,11 +133,37 @@ public class Classes extends JPanel {
     oodButton.setOpaque(false);
     oodButton.setContentAreaFilled(false);
 
+    oodButton.addActionListener(e -> {
+      if (this.ood) {
+        this.vm.showScreen("schedule");
+      }
+      else {
+        oodButton.setIcon(makeIcon(true));
+        this.ood = true;
+        oodButton.revalidate();
+        this.repaint();
+      }
+            }
+            );
+
     discreteButton.setFont(new Font("TimesRoman", Font.PLAIN, 15));
     discreteButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
     discreteButton.setPreferredSize(new Dimension(150, 20));
     discreteButton.setOpaque(false);
     discreteButton.setContentAreaFilled(false);
+
+    discreteButton.addActionListener(e -> {
+              if (this.discrete) {
+              }
+              else {
+                discreteButton.setIcon(makeIcon(true));
+                this.discrete = true;
+                discreteButton.revalidate();
+                this.repaint();
+              }
+            }
+    );
+
 
     dbButton.setFont(new Font("TimesRoman", Font.PLAIN, 15));
     dbButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
@@ -155,11 +171,37 @@ public class Classes extends JPanel {
     dbButton.setOpaque(false);
     dbButton.setContentAreaFilled(false);
 
+    dbButton.addActionListener(e -> {
+              if (this.db) {
+              }
+              else {
+                dbButton.setIcon(makeIcon(true));
+                this.db = true;
+                dbButton.revalidate();
+                this.repaint();
+              }
+            }
+    );
+
+
     algoButton.setFont(new Font("TimesRoman", Font.PLAIN, 15));
     algoButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
     algoButton.setPreferredSize(new Dimension(150, 20));
     algoButton.setOpaque(false);
     algoButton.setContentAreaFilled(false);
+
+    algoButton.addActionListener(e -> {
+              if (this.algo) {
+              }
+              else {
+                algoButton.setIcon(makeIcon(true));
+                this.algo = true;
+                algoButton.revalidate();
+                this.repaint();
+              }
+            }
+    );
+
 
     classPanel.add(oodButton);
     classPanel.add(discreteButton);
