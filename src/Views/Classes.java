@@ -37,14 +37,14 @@ public class Classes extends JPanel {
     setConstraints(c1, 0, 0, new Insets(0, 0, 0, 175));
     header.add(logoLabel, c1);
 
-    Icon profile = new ImageIcon(Schedule.class.getResource("logo.jpg"));
+    Icon profile = new ImageIcon(Schedule.class.getResource("profile.png"));
     JButton profileButton = new JButton();
     profileButton.setIcon(profile);
     profileButton.setOpaque(false);
     profileButton.setContentAreaFilled(false);
     profileButton.setBorder(null);
     profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    setConstraints(c1, 2, 0, new Insets(0, 100, 0, 0));
+    setConstraints(c1, 3, 0, new Insets(0, 263, 0, 0));
     header.add(profileButton, c1);
 
     JPanel content = new JPanel();
@@ -127,7 +127,7 @@ public class Classes extends JPanel {
     dbButton = new JButton("  Database Design", makeIcon(db));
     algoButton = new JButton("  Algorithms and Data", makeIcon(algo));
 
-    oodButton.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+    oodButton.setFont(new Font("TimesRoman", Font.PLAIN, 25));
     oodButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
     oodButton.setPreferredSize(new Dimension(150, 20));
     oodButton.setOpaque(false);
@@ -146,7 +146,7 @@ public class Classes extends JPanel {
             }
             );
 
-    discreteButton.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+    discreteButton.setFont(new Font("TimesRoman", Font.PLAIN, 25));
     discreteButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
     discreteButton.setPreferredSize(new Dimension(150, 20));
     discreteButton.setOpaque(false);
@@ -165,7 +165,7 @@ public class Classes extends JPanel {
     );
 
 
-    dbButton.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+    dbButton.setFont(new Font("TimesRoman", Font.PLAIN, 25));
     dbButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
     dbButton.setPreferredSize(new Dimension(150, 20));
     dbButton.setOpaque(false);
@@ -184,7 +184,7 @@ public class Classes extends JPanel {
     );
 
 
-    algoButton.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+    algoButton.setFont(new Font("TimesRoman", Font.PLAIN, 25));
     algoButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
     algoButton.setPreferredSize(new Dimension(150, 20));
     algoButton.setOpaque(false);

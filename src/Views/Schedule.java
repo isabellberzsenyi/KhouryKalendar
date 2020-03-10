@@ -26,7 +26,7 @@ public class Schedule extends JPanel {
     setConstraints(c1, 0, 0 ,new Insets(0, 0,0,175));
     header.add(logoLabel, c1);
 
-    Icon profile = new ImageIcon(Schedule.class.getResource("logo.jpg"));
+    Icon profile = new ImageIcon(Schedule.class.getResource("profile.png"));
     JButton profileButton = new JButton();
     profileButton.setIcon(profile);
     profileButton.setOpaque(false);
