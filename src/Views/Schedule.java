@@ -5,11 +5,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.*;
-public class Schedule extends AView {
-//  ViewMain vm;
+public class Schedule extends JPanel {
+  ViewMain vm;
 
   public Schedule(ViewMain vm) {
-    super(vm);
+    this.vm = vm;
     Font f = new Font("TimesRoman", Font.BOLD, 40);
 
     this.setLayout(new BorderLayout());
@@ -23,7 +23,7 @@ public class Schedule extends AView {
     Icon logo = new ImageIcon(Schedule.class.getResource("logo.jpg"));
     JLabel logoLabel = new JLabel();
     logoLabel.setIcon(logo);
-    setConstraints(c1, 0, 0 ,new Insets(0, 0,0,175));
+    setConstraints(c1, 0, 0 ,new Insets(0, 0,0,100));
     header.add(logoLabel, c1);
 
 //    try {
@@ -34,15 +34,22 @@ public class Schedule extends AView {
 //      i.printStackTrace();
 //    }
 
-    Icon profile = new ImageIcon(Schedule.class.getResource("STUDENT.JPG"));
+    Icon profile = new ImageIcon(Schedule.class.getResource("student.png"));
+
     JButton profileButton = new JButton();
     profileButton.setIcon(profile);
     profileButton.setOpaque(false);
     profileButton.setContentAreaFilled(false);
     profileButton.setBorder(null);
     profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    setConstraints(c1, 2, 0 ,new Insets(0, 100,0,0));
+    profileButton.addActionListener(e -> {
+      this.vm.showScreen("profile");
+    });
+    setConstraints(c1, 5, 0 ,new Insets(0, 250,0,100));
     header.add(profileButton, c1);
+    profileButton.addActionListener(e -> {
+      this.vm.showScreen("profile");
+    });
 
     JPanel content = new JPanel();
     content.setLayout(new BorderLayout());
@@ -60,7 +67,7 @@ public class Schedule extends AView {
     back.setOpaque(false);
     back.setContentAreaFilled(false);
     back.addActionListener(e -> {
-      this.vm.showScreen("login");
+      this.vm.showScreen("classes");
             });
     back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
@@ -148,14 +155,13 @@ public class Schedule extends AView {
     room.setAlignmentX(Component.CENTER_ALIGNMENT);
     button.add(room);
 
-    JLabel queue = new JLabel(bottom);
-    queue.setFont(new Font("TimesRoman", Font.PLAIN, 18));
-    queue.setAlignmentX(Component.CENTER_ALIGNMENT);
-    button.add(queue);
-
     button.setPreferredSize(new Dimension(200,100));
 
     if (active) {
+      JLabel queue = new JLabel(bottom);
+      queue.setFont(new Font("TimesRoman", Font.PLAIN, 18));
+      queue.setAlignmentX(Component.CENTER_ALIGNMENT);
+      button.add(queue);
       button.setBackground(Color.RED.darker());
       time.setForeground(Color.WHITE);
       room.setForeground(Color.WHITE);
@@ -181,5 +187,20 @@ public class Schedule extends AView {
       button.setEnabled(false);
     }
     return button;
+  }
+
+  public JPanel gridLayPanel(int x, int y) {
+    JPanel panel = new JPanel(new GridBagLayout());
+    panel.setMaximumSize(new Dimension(x, y));
+    panel.setBackground(Color.WHITE);
+    return panel;
+  }
+
+  public void setConstraints(GridBagConstraints constraint, int x, int y, Insets insets) {
+    constraint.gridx = x;
+    constraint.gridy = y;
+    if (insets != null) {
+      constraint.insets = insets;
+    }
   }
 }

@@ -9,16 +9,14 @@ import java.net.URISyntaxException;
 
 import javax.swing.*;
 
-public class Login extends AView {
+public class Login extends JPanel {
   JTextField username;
   JTextField password;
-//  ViewMain vm;
+  ViewMain vm;
 
   public Login(ViewMain vm) {
-    super(vm);
-//    this.vm = vm;
-//    this.vm.setUser("");
-
+//    super(vm);
+    this.vm = vm;
     this.setMaximumSize(new Dimension(800, 800));
     this.setLayout(new GridBagLayout());
     this.setBackground(Color.WHITE);
@@ -90,8 +88,8 @@ public class Login extends AView {
     textButton.addActionListener(e -> {
       if ((this.username.getText().equals("student") && this.password.getText().equals("12345"))) {
 //              || (this.username.getText().equals("ta") && this.password.getText().equals("54321"))) {
-        this.vm.showScreen("schedule");
-
+//        this.vm.showScreen("schedule");
+        this.vm.showScreen("classes");
 //        try {
 //          this.saveData();
 //        } catch (IOException i) {
@@ -103,6 +101,11 @@ public class Login extends AView {
         this.password.setText("");
         this.username.setText("");
       } else {
+    }
+    });
+    textButton.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseClicked(MouseEvent e) {
         JOptionPane.showMessageDialog(null,
                 "Username or password is incorrect");
       }
@@ -137,4 +140,18 @@ public class Login extends AView {
     this.add(buttonPanel,c);
   }
 
+  public JPanel gridLayPanel(int x, int y) {
+    JPanel panel = new JPanel(new GridBagLayout());
+    panel.setMaximumSize(new Dimension(x, y));
+    panel.setBackground(Color.WHITE);
+    return panel;
+  }
+
+  public void setConstraints(GridBagConstraints constraint, int x, int y, Insets insets) {
+    constraint.gridx = x;
+    constraint.gridy = y;
+    if (insets != null) {
+      constraint.insets = insets;
+    }
+  }
 }

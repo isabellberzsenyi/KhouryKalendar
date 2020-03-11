@@ -10,7 +10,8 @@ public class ViewMain extends JFrame {
   public final String LOGIN = "login";
   public final String SCHEDULE = "schedule";
   public final String WAITLIST = "waitlist";
-
+  public final String CLASSES = "classes";
+  public final String PROFILE = "profile";
 
   public ViewMain() {
 
@@ -23,13 +24,21 @@ public class ViewMain extends JFrame {
     mainPanel.setLayout(cardLayout);
 
     JPanel login = new Login(this);
-    JPanel schedule = new Schedule(this);
     JPanel waitlist = new Waitlist(this);
+    JPanel schedule = new Schedule(this);
+    JPanel classes = new Classes(this);
+    JPanel profile = new Profile(this);
+
+    showScreen(SCHEDULE);
+
 
     mainPanel.add(SCHEDULE, schedule);
     mainPanel.add(LOGIN, login);
     mainPanel.add(WAITLIST, waitlist);
-    showScreen(SCHEDULE);
+    mainPanel.add(CLASSES, classes);
+    mainPanel.add(PROFILE, profile);
+
+    showScreen(LOGIN);
     setLayout(new BorderLayout());
     add(mainPanel,BorderLayout.CENTER);
     pack();

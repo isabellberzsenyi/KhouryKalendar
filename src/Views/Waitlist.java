@@ -5,11 +5,11 @@ import java.awt.*;
 import javax.swing.*;
 
 
-public class Waitlist extends AView {
-//  ViewMain vm;
+public class Waitlist extends JPanel {
+  ViewMain vm;
 
   public Waitlist(ViewMain vm) {
-    super(vm);
+    this.vm = vm;
     Font f = new Font("TimesRoman", Font.BOLD, 40);
 
     this.setLayout(new BorderLayout());
@@ -26,7 +26,7 @@ public class Waitlist extends AView {
     logoLabel.setIcon(logo);
     setConstraints(c1, 0, 0 ,new Insets(0, 0,0,175));
     header.add(logoLabel, c1);
-    Icon profile = new ImageIcon(Schedule.class.getResource("STUDENT.JPG"));
+    Icon profile = new ImageIcon(Waitlist.class.getResource("student.jpg"));
 
 //    if (this.vm.getUser().equals("student")) {
 //      profile =  new ImageIcon(Schedule.class.getResource("STUDENT.JPG"));
@@ -39,6 +39,9 @@ public class Waitlist extends AView {
     profileButton.setContentAreaFilled(false);
     profileButton.setBorder(null);
     profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    profileButton.addActionListener(e -> {
+      this.vm.showScreen("profile");
+    });
     setConstraints(c1, 2, 0 ,new Insets(0, 100,0,0));
     header.add(profileButton, c1);
 
@@ -182,5 +185,20 @@ public class Waitlist extends AView {
 
   }
 
+
+  public JPanel gridLayPanel(int x, int y) {
+    JPanel panel = new JPanel(new GridBagLayout());
+    panel.setMaximumSize(new Dimension(x, y));
+    panel.setBackground(Color.WHITE);
+    return panel;
+  }
+
+  public void setConstraints(GridBagConstraints constraint, int x, int y, Insets insets) {
+    constraint.gridx = x;
+    constraint.gridy = y;
+    if (insets != null) {
+      constraint.insets = insets;
+    }
+  }
 }
 
