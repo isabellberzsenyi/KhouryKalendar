@@ -23,7 +23,7 @@ public class Schedule extends JPanel {
     Icon logo = new ImageIcon(Schedule.class.getResource("logo.jpg"));
     JLabel logoLabel = new JLabel();
     logoLabel.setIcon(logo);
-    setConstraints(c1, 0, 0 ,new Insets(0, 0,0,175));
+    setConstraints(c1, 0, 0 ,new Insets(0, 0,0,100));
     header.add(logoLabel, c1);
 
     Icon profile = new ImageIcon(Schedule.class.getResource("profile.png"));
@@ -33,8 +33,11 @@ public class Schedule extends JPanel {
     profileButton.setContentAreaFilled(false);
     profileButton.setBorder(null);
     profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    setConstraints(c1, 2, 0 ,new Insets(0, 100,0,0));
+    setConstraints(c1, 5, 0 ,new Insets(0, 250,0,100));
     header.add(profileButton, c1);
+    profileButton.addActionListener(e -> {
+      this.vm.showScreen("profile");
+    });
 
     JPanel content = new JPanel();
     content.setLayout(new BorderLayout());
