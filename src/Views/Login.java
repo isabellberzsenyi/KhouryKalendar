@@ -25,7 +25,7 @@ public class Login extends JPanel {
     c.fill = GridBagConstraints.VERTICAL;
 
     //    Text Label
-    JPanel textPanel = this.gridLayPanel(800, 200);
+    JPanel textPanel = this.gridLayPanel(800, 350);
     GridBagConstraints c1 = new GridBagConstraints();
     c1.fill = GridBagConstraints.VERTICAL;
 
@@ -57,8 +57,9 @@ public class Login extends JPanel {
     setConstraints(c1, 1, 2, new Insets(7,11,0,0));
     textPanel.add(password, c1);
 
-    String forget = "Forget password or username? Please make account here.";
+    String forget = "Forget password? Forgot Username?";
     JLabel forgetLabel = new JLabel(forget);
+    forgetLabel.setFont(new Font("TimesRoman", Font.PLAIN, 14));
     forgetLabel.setForeground(Color.RED.darker());
     forgetLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     forgetLabel.addMouseListener(new MouseAdapter() {
@@ -128,15 +129,21 @@ public class Login extends JPanel {
     setConstraints(c2, 0, 1, null);
     buttonPanel.add(textButton, c2);
 
+    Icon logo = new ImageIcon(Schedule.class.getResource("logo.jpg"));
+    JLabel logoLabel = new JLabel();
+    logoLabel.setIcon(logo);
+    setConstraints(c, 0, 1 ,new Insets(0, 10,0,0));
+    this.add(logoLabel, c);
 
-    setConstraints(c, 0, 2, new Insets(20, 0, 0, 0));
+
+    setConstraints(c, 0, 2, new Insets(20, 0, 0, 125));
     this.add(textPanel,c);
 
 
-    setConstraints(c, 0, 3, null);
+    setConstraints(c, 0, 3, new Insets(10, 0, 0, 0));
     this.add(forgetLabel,c);
 
-    setConstraints(c, 0, 4, null);
+    setConstraints(c, 0, 4, new Insets(20, 0, 0, 0));
     this.add(buttonPanel,c);
   }
 

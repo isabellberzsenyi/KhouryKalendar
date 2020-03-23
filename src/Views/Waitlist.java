@@ -26,7 +26,7 @@ public class Waitlist extends JPanel {
     logoLabel.setIcon(logo);
     setConstraints(c1, 0, 0 ,new Insets(0, 0,0,175));
     header.add(logoLabel, c1);
-    Icon profile = new ImageIcon(Waitlist.class.getResource("student.jpg"));
+    Icon profile = new ImageIcon(Waitlist.class.getResource("student.png"));
 
 //    if (this.vm.getUser().equals("student")) {
 //      profile =  new ImageIcon(Schedule.class.getResource("STUDENT.JPG"));

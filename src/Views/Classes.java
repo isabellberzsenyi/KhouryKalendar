@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.swing.*;
 public class Classes extends JPanel {
@@ -34,7 +37,7 @@ public class Classes extends JPanel {
     Icon logo = new ImageIcon(Schedule.class.getResource("logo.jpg"));
     JLabel logoLabel = new JLabel();
     logoLabel.setIcon(logo);
-    setConstraints(c1, 0, 0 ,new Insets(0, 0,0,100));
+    setConstraints(c1, 0, 0 ,new Insets(0, 0,0,175));
     header.add(logoLabel, c1);
 
     Icon profile = new ImageIcon(Schedule.class.getResource("student.png"));
@@ -44,7 +47,7 @@ public class Classes extends JPanel {
     profileButton.setContentAreaFilled(false);
     profileButton.setBorder(null);
     profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    setConstraints(c1, 5, 0 ,new Insets(0, 250,0,100));
+    setConstraints(c1, 2, 0 ,new Insets(0, 100,0,0));
     profileButton.addActionListener(e -> {
       this.vm.showScreen("profile");
     });
@@ -57,9 +60,10 @@ public class Classes extends JPanel {
     JPanel titlePanel = new JPanel();
     titlePanel.setBackground(Color.WHITE);
     titlePanel.setLayout(new BoxLayout(titlePanel, BoxLayout.X_AXIS));
-    JButton back = new JButton("Back");
+    JButton back = new JButton("Log Out");
     titlePanel.add(back);
-    back.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+    back.setFont(new Font("TimesRoman", Font.PLAIN, 16));
+    back.setForeground(Color.RED.darker());
 
     back.setBorder(BorderFactory.createEmptyBorder(0, 35, 0, 35));
     back.setPreferredSize(new Dimension(150, 20));
@@ -69,6 +73,17 @@ public class Classes extends JPanel {
       this.vm.showScreen("login");
     });
     back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    back.addMouseListener(new MouseAdapter() {
+
+      @Override
+      public void mouseEntered(MouseEvent e) {
+        back.setForeground(Color.darkGray);
+      }
+      @Override
+      public void mouseExited(MouseEvent e) {
+        back.setForeground(Color.RED.darker());
+      }
+    });
 
     JLabel title = new JLabel("               CLASSES");
     titlePanel.add(title);

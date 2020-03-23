@@ -46,22 +46,8 @@ public class ViewMain extends JFrame {
 
   }
   public void showScreen(String str) {
+
     this.cardLayout.show(mainPanel, str);
     this.setTitle(str);
   }
-//  public void setUser(String str) {
-//    this.user = str;
-//  }
-//  public String getUser() {
-//    return this.user;
-//  }
-//  public Icon setProfile() {
-//    if (this.getUser().equals("student")) {
-//      return new ImageIcon(Schedule.class.getResource("STUDENT.JPG"));
-//    } else if (this.getUser().equals("ta")) {
-//      return new ImageIcon(Schedule.class.getResource("TA.JPG"));
-//    } else {
-//      return new ImageIcon(Schedule.class.getResource("logo.jpg"));
-//    }
-//  }
 }

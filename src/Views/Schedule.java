@@ -23,16 +23,9 @@ public class Schedule extends JPanel {
     Icon logo = new ImageIcon(Schedule.class.getResource("logo.jpg"));
     JLabel logoLabel = new JLabel();
     logoLabel.setIcon(logo);
-    setConstraints(c1, 0, 0 ,new Insets(0, 0,0,100));
+    setConstraints(c1, 0, 0 ,new Insets(0, 0,0,175));
     header.add(logoLabel, c1);
 
-//    try {
-//      this.renderData();
-//      System.out.println(this.vm.getUser());
-//    } catch (IOException i) {
-//      System.out.println("render");
-//      i.printStackTrace();
-//    }
 
     Icon profile = new ImageIcon(Schedule.class.getResource("student.png"));
 
@@ -45,7 +38,7 @@ public class Schedule extends JPanel {
     profileButton.addActionListener(e -> {
       this.vm.showScreen("profile");
     });
-    setConstraints(c1, 5, 0 ,new Insets(0, 250,0,100));
+    setConstraints(c1, 2, 0 ,new Insets(0, 100,0,0));
     header.add(profileButton, c1);
     profileButton.addActionListener(e -> {
       this.vm.showScreen("profile");
