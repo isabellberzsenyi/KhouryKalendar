@@ -6,3 +6,5 @@ Notes on how to use github/shortcuts:
 -git commit -a -m "MESSAGE" : adds all untracked files and commits changes
 -gitk : shows a visual to the commits and branches
 -git push -u origin master : pushes changes to the repo
+
+![Run on Repl.it](https://repl.it/badge/github/isabellberzsenyi/KhouryKalendar)](https://repl.it/github/isabellberzsenyi/KhouryKalendar)
