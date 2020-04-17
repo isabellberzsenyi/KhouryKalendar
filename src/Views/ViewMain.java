@@ -12,6 +12,11 @@ public class ViewMain extends JFrame {
   public final String WAITLIST = "waitlist";
   public final String CLASSES = "classes";
   public final String PROFILE = "profile";
+  JPanel login;
+  Waitlist waitlist;
+  Schedule schedule;
+  JPanel classes;
+  Profile profile;
 
   public ViewMain() {
 
@@ -23,13 +28,13 @@ public class ViewMain extends JFrame {
     mainPanel.setPreferredSize(new Dimension(800,800));
     mainPanel.setLayout(cardLayout);
 
-    JPanel login = new Login(this);
-    JPanel waitlist = new Waitlist(this);
-    JPanel schedule = new Schedule(this);
-    JPanel classes = new Classes(this);
-    JPanel profile = new Profile(this);
+    login = new Login(this);
+    waitlist = new Waitlist(this);
+    schedule = new Schedule(this);
+    classes = new Classes(this);
+    profile = new Profile(this);
 
-    showScreen(SCHEDULE);
+//    showScreen(SCHEDULE, LOGIN);
 
 
     mainPanel.add(SCHEDULE, schedule);
@@ -38,15 +43,21 @@ public class ViewMain extends JFrame {
     mainPanel.add(CLASSES, classes);
     mainPanel.add(PROFILE, profile);
 
-    showScreen(LOGIN);
+    showScreen(LOGIN, LOGIN);
     setLayout(new BorderLayout());
     add(mainPanel,BorderLayout.CENTER);
     pack();
     setVisible(true);
 
   }
-  public void showScreen(String str) {
-
+  public void showScreen(String str, String prev) {
+    if (str.equals(PROFILE)) {
+      this.profile.setPrev(prev);
+    } else if (str.equals(SCHEDULE)) {
+      this.schedule.setTitleName(prev);
+    } else if (str.equals(WAITLIST)) {
+      this.waitlist.setTitleName(prev);
+    }
     this.cardLayout.show(mainPanel, str);
     this.setTitle(str);
   }

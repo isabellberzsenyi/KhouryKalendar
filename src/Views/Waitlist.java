@@ -1,14 +1,18 @@
 package Views;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
 
-public class Waitlist extends JPanel {
-  ViewMain vm;
-
+public class Waitlist extends AScreens {
+  private ViewMain vm;
+  private boolean checkedIn = false;
+  private JLabel titleLabel;
   public Waitlist(ViewMain vm) {
+    super(vm);
     this.vm = vm;
     Font f = new Font("TimesRoman", Font.BOLD, 40);
 
@@ -28,11 +32,6 @@ public class Waitlist extends JPanel {
     header.add(logoLabel, c1);
     Icon profile = new ImageIcon(Waitlist.class.getResource("student.png"));
 
-//    if (this.vm.getUser().equals("student")) {
-//      profile =  new ImageIcon(Schedule.class.getResource("STUDENT.JPG"));
-//    } else {
-//      profile =  new ImageIcon(Schedule.class.getResource("TA.JPG"));
-//    }
     JButton profileButton = new JButton();
     profileButton.setIcon(profile);
     profileButton.setOpaque(false);
@@ -40,7 +39,7 @@ public class Waitlist extends JPanel {
     profileButton.setBorder(null);
     profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     profileButton.addActionListener(e -> {
-      this.vm.showScreen("profile");
+      this.vm.showScreen("profile", "waitlist");
     });
     setConstraints(c1, 2, 0 ,new Insets(0, 100,0,0));
     header.add(profileButton, c1);
@@ -60,14 +59,25 @@ public class Waitlist extends JPanel {
     back.setPreferredSize(new Dimension(150, 20));
     back.setOpaque(false);
     back.setContentAreaFilled(false);
+    back.setForeground(Color.RED.darker());
     back.addActionListener(e -> {
-      this.vm.showScreen("schedule");
+      this.vm.showScreen("schedule", this.titleLabel.getText());
     });
     back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    back.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseEntered(MouseEvent e) {
+        back.setForeground(Color.darkGray);
+      }
+      @Override
+      public void mouseExited(MouseEvent e) {
+        back.setForeground(Color.RED.darker());
+      }
+    });
 
-    JLabel title = new JLabel("OBJECT-ORIENTED DESIGN");
-    titlePanel.add(title);
-    title.setFont(f);
+    this.titleLabel = new JLabel("OBJECT-ORIENTED DESIGN");
+    titlePanel.add(titleLabel);
+    titleLabel.setFont(f);
     content.add(titlePanel, BorderLayout.PAGE_START);
 
     JPanel contentSub = new JPanel();
@@ -147,32 +157,30 @@ public class Waitlist extends JPanel {
     DefaultListModel listModel = new DefaultListModel();
     JList studentList = new JList(listModel);
     studentList.setFont(new Font("TimeRoman", Font.PLAIN, 20));
-//    if (this.vm.getUser().equals("student")) {
-      studentList.setEnabled(false);
-      listModel.addElement("      Jane Doe");
-      listModel.addElement("      Mary Ellen");
-      listModel.addElement("      Kathy Green");
-      listModel.addElement("      Raina Parekh");
-//    }
-//    else {
-////      studentList.setEnabled(false);
-//      listModel.addElement("X     Jane Doe");
-//      listModel.addElement("X     Mary Ellen");
-//      listModel.addElement("X     Kathy Green");
-//      listModel.addElement("X     Raina Parekh");
-//      studentList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-//
-//    }
-
+    studentList.setEnabled(false);
+    listModel.addElement("      Jane Doe");
+    listModel.addElement("      Mary Ellen");
+    listModel.addElement("      Kathy Green");
+    listModel.addElement("      Raina Parekh");
 
     JScrollPane waitlistList = new JScrollPane(studentList);
-    JButton addButton = new JButton("CHECK-IN");
+    JButton addButton = new JButton("CHECK IN");
     addButton.setBackground(Color.RED.darker());
     addButton.setForeground(Color.WHITE);
+    addButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
     addButton.addActionListener(e -> {
-      listModel.addElement("      John Smith");
-      waitlist.remove(addButton);
+      if (checkedIn) {
+        listModel.removeElement("      John Smith");
+        addButton.setBackground(Color.RED.darker());
+        addButton.setText("CHECK IN");
+        checkedIn = false;
+      } else {
+        listModel.addElement("      John Smith");
+        addButton.setBackground(Color.darkGray);
+        addButton.setText("REMOVE FROM WAITLIST");
+        checkedIn = true;
+      }
     });
 
     waitlist.add(waitlistList, BorderLayout.CENTER);
@@ -182,23 +190,18 @@ public class Waitlist extends JPanel {
     content.add(contentSub, BorderLayout.CENTER);
     this.add(header, BorderLayout.PAGE_START);
     this.add(content, BorderLayout.CENTER);
-
   }
-
-
-  public JPanel gridLayPanel(int x, int y) {
-    JPanel panel = new JPanel(new GridBagLayout());
-    panel.setMaximumSize(new Dimension(x, y));
-    panel.setBackground(Color.WHITE);
-    return panel;
-  }
-
-  public void setConstraints(GridBagConstraints constraint, int x, int y, Insets insets) {
-    constraint.gridx = x;
-    constraint.gridy = y;
-    if (insets != null) {
-      constraint.insets = insets;
+  public void setTitleName(String name) {
+    if (name.equals("Fundamentals of Computer Science II") ||
+            name.equals("Fundamentals of Computer Science I") ||
+            name.equals("Human Computer Interaction")) {
+      this.titleLabel.setText(name.toUpperCase());
+    } else {
+      this.titleLabel.setText(name.toUpperCase());
     }
+    titleLabel.setFont(new Font("TimesRoman", Font.BOLD, 30));
+    this.titleLabel.revalidate();
+    this.titleLabel.repaint();
   }
 }
 

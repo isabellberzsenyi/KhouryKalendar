@@ -5,10 +5,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.*;
-public class Schedule extends JPanel {
-  ViewMain vm;
+public class Schedule extends AScreens {
+  private ViewMain vm;
+  private JLabel titleLabel;
+  private JPanel content;
 
   public Schedule(ViewMain vm) {
+    super(vm);
     this.vm = vm;
     Font f = new Font("TimesRoman", Font.BOLD, 40);
 
@@ -36,15 +39,12 @@ public class Schedule extends JPanel {
     profileButton.setBorder(null);
     profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     profileButton.addActionListener(e -> {
-      this.vm.showScreen("profile");
+      this.vm.showScreen("profile", "schedule");
     });
     setConstraints(c1, 2, 0 ,new Insets(0, 100,0,0));
     header.add(profileButton, c1);
-    profileButton.addActionListener(e -> {
-      this.vm.showScreen("profile");
-    });
 
-    JPanel content = new JPanel();
+    this.content = new JPanel();
     content.setLayout(new BorderLayout());
     content.setBackground(Color.WHITE);
 
@@ -59,32 +59,43 @@ public class Schedule extends JPanel {
     back.setPreferredSize(new Dimension(150, 20));
     back.setOpaque(false);
     back.setContentAreaFilled(false);
+    back.setForeground(Color.RED.darker());
     back.addActionListener(e -> {
-      this.vm.showScreen("classes");
+      this.vm.showScreen("classes", "schedule");
             });
     back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    back.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseEntered(MouseEvent e) {
+        back.setForeground(Color.darkGray);
+      }
+      @Override
+      public void mouseExited(MouseEvent e) {
+        back.setForeground(Color.RED.darker());
+      }
+    });
 
-    JLabel title = new JLabel("OBJECT-ORIENTED DESIGN");
-    titlePanel.add(title);
-    title.setFont(f);
+    this.titleLabel = new JLabel("OBJECT-ORIENTED DESIGN");
+    titlePanel.add(titleLabel);
+    titleLabel.setFont(f);
     content.add(titlePanel, BorderLayout.PAGE_START);
 
     JPanel schedule = new JPanel();
     schedule.setLayout(new BoxLayout(schedule, BoxLayout.PAGE_AXIS));
 
 //    MONDAY
-    JButton[] mondayButtons = {makeTimeButton("1pm - 3pm", "Kariotis 011", "QUEUE: 24", true, this.vm),
+    JButton[] mondayButtons = {makeTimeButton("1pm - 3pm", "Kariotis 011", "QUEUE: 5", true, this.vm),
             makeTimeButton("4pm - 7pm", "Hastings 024", "", false, this.vm)};
     JPanel monday = makeTimePanel("Monday Jan 6", mondayButtons);
     schedule.add(monday);
 //    TUESDAY
-    JButton[] tuesButtons = {makeTimeButton("1pm - 3pm", "Kariotis 011", "", false, this.vm),
+    JButton[] tuesButtons = {makeTimeButton("2pm - 3pm", "ISEC 101", "", false, this.vm),
             makeTimeButton("4pm - 7pm", "Hastings 024", "", false, this.vm)};
     JPanel tuesday = makeTimePanel("Tuesday Jan 7", tuesButtons);
     schedule.add(tuesday);
 //    WEDNESDAY
-    JButton[] wedButtons = {makeTimeButton("1pm - 3pm", "Kariotis 011", "", false, this.vm),
-            makeTimeButton("4pm - 7pm", "Hastings 024", "", false, this.vm)};
+    JButton[] wedButtons = {makeTimeButton("11am - 1pm", "Ryder 011", "", false, this.vm),
+            makeTimeButton("2pm - 4pm", "Hastings 024", "", false, this.vm)};
     JPanel wednesday = makeTimePanel("Wednesday Jan 8", wedButtons);
     schedule.add(wednesday);
 //    THURSDAY
@@ -136,7 +147,7 @@ public class Schedule extends JPanel {
   JButton makeTimeButton(String top, String middle, String  bottom, boolean active, ViewMain vm) {
     Font f = new Font("TimesRoman", Font.BOLD, 20);
     JButton button = new JButton();
-    button.setBorder(BorderFactory.createEmptyBorder(10,0,5,0));
+    button.setBorder(BorderFactory.createEmptyBorder(10, 0, 5, 0));
     button.setLayout(new BoxLayout(button, BoxLayout.PAGE_AXIS));
     JLabel time = new JLabel(top);
     time.setFont(f);
@@ -148,7 +159,7 @@ public class Schedule extends JPanel {
     room.setAlignmentX(Component.CENTER_ALIGNMENT);
     button.add(room);
 
-    button.setPreferredSize(new Dimension(200,100));
+    button.setPreferredSize(new Dimension(200, 100));
 
     if (active) {
       JLabel queue = new JLabel(bottom);
@@ -164,12 +175,14 @@ public class Schedule extends JPanel {
       button.addMouseListener(new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            vm.showScreen("waitlist");
+          vm.showScreen("waitlist", titleLabel.getText());
         }
+
         @Override
         public void mouseEntered(MouseEvent e) {
           button.setBackground(Color.darkGray);
         }
+
         @Override
         public void mouseExited(MouseEvent e) {
           button.setBackground(Color.RED.darker());
@@ -182,18 +195,16 @@ public class Schedule extends JPanel {
     return button;
   }
 
-  public JPanel gridLayPanel(int x, int y) {
-    JPanel panel = new JPanel(new GridBagLayout());
-    panel.setMaximumSize(new Dimension(x, y));
-    panel.setBackground(Color.WHITE);
-    return panel;
-  }
-
-  public void setConstraints(GridBagConstraints constraint, int x, int y, Insets insets) {
-    constraint.gridx = x;
-    constraint.gridy = y;
-    if (insets != null) {
-      constraint.insets = insets;
+  public void setTitleName(String name) {
+    if (name.equals("Fundamentals of Computer Science II") ||
+            name.equals("Fundamentals of Computer Science I") ||
+    name.equals("Human Computer Interaction")) {
+      this.titleLabel.setText(name.toUpperCase());
+    } else {
+      this.titleLabel.setText(name.toUpperCase());
     }
+    titleLabel.setFont(new Font("TimesRoman", Font.BOLD, 30));
+    this.titleLabel.revalidate();
+    this.titleLabel.repaint();
   }
 }

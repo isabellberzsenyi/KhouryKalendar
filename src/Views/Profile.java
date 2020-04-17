@@ -9,11 +9,14 @@ import java.net.URISyntaxException;
 
 import javax.swing.*;
 
-public class Profile extends JPanel {
+public class Profile extends AScreens {
   ViewMain vm;
+  String prev;
 
   public Profile(ViewMain vm) {
+    super(vm);
     this.vm = vm;
+    this.prev = "classes";
 
     JPanel header = this.gridLayPanel(800, 675);
     header.setBackground(Color.WHITE);
@@ -28,9 +31,19 @@ public class Profile extends JPanel {
     back.setOpaque(false);
     back.setContentAreaFilled(false);
     back.addActionListener(e -> {
-      this.vm.showScreen("classes");
+      this.vm.showScreen(this.prev, "profile");
     });
     back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    back.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseEntered(MouseEvent e) {
+        back.setForeground(Color.darkGray);
+      }
+      @Override
+      public void mouseExited(MouseEvent e) {
+        back.setForeground(Color.RED.darker());
+      }
+    });
     setConstraints(c1, 0, 0 ,new Insets(0, 0,0,50));
     header.add(back,c1);
 
@@ -106,7 +119,7 @@ public class Profile extends JPanel {
     homeLabel.addMouseListener(new MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent e) {
-        vm.showScreen("classes");
+        vm.showScreen("classes", "profile");
       }
       @Override
       public void mouseEntered(MouseEvent e) {
@@ -131,19 +144,7 @@ public class Profile extends JPanel {
     this.add(homeLabel,c2);
 
   }
-
-  JPanel gridLayPanel(int x, int y) {
-    JPanel panel = new JPanel(new GridBagLayout());
-    panel.setMaximumSize(new Dimension(x, y));
-    panel.setBackground(Color.WHITE);
-    return panel;
-  }
-
-  void setConstraints(GridBagConstraints constraint, int x, int y, Insets insets) {
-    constraint.gridx = x;
-    constraint.gridy = y;
-    if (insets != null) {
-      constraint.insets = insets;
-    }
+  public void setPrev(String str) {
+    this.prev = str;
   }
 }

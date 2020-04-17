@@ -10,20 +10,19 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import javax.swing.*;
-public class Classes extends JPanel {
+public class Classes extends AScreens {
   private ViewMain vm;
   private JPanel classPanel;
   private boolean ood;
   private boolean db;
   private boolean algo;
   private boolean discrete;
-  private JButton oodButton;
-  private JButton dbButton;
-  private JButton algoButton;
-  private JButton discreteButton;
+  private boolean fundies1;
+  private boolean fundies2;
+  private boolean hci;
+  private boolean lac;
 
-  private void initPage(ViewMain vm) {
-    this.vm = vm;
+  private void initPage() {
     Font f = new Font("TimesRoman", Font.BOLD, 40);
 
     this.setLayout(new BorderLayout());
@@ -49,7 +48,7 @@ public class Classes extends JPanel {
     profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     setConstraints(c1, 2, 0 ,new Insets(0, 100,0,0));
     profileButton.addActionListener(e -> {
-      this.vm.showScreen("profile");
+      this.vm.showScreen("profile", "classes");
     });
     header.add(profileButton, c1);
 
@@ -70,11 +69,10 @@ public class Classes extends JPanel {
     back.setOpaque(false);
     back.setContentAreaFilled(false);
     back.addActionListener(e -> {
-      this.vm.showScreen("login");
+      this.vm.showScreen("login", "classes");
     });
     back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     back.addMouseListener(new MouseAdapter() {
-
       @Override
       public void mouseEntered(MouseEvent e) {
         back.setForeground(Color.darkGray);
@@ -92,7 +90,6 @@ public class Classes extends JPanel {
 
     this.classPanel = new JPanel();
     classPanel.setLayout(new BoxLayout(classPanel, BoxLayout.PAGE_AXIS));
-
     this.addClasses();
 
     JScrollPane classScroll = new JScrollPane(classPanel);
@@ -103,33 +100,20 @@ public class Classes extends JPanel {
 
     content.add(classScroll, BorderLayout.CENTER);
 
-
     this.add(header, BorderLayout.PAGE_START);
     this.add(content, BorderLayout.CENTER);
   }
 
   public Classes(ViewMain vm) {
+    super(vm);
+    this.vm = vm;
     this.ood = false;
     this.db = false;
     this.algo = false;
     this.discrete = false;
-    this.initPage(vm);
+    this.initPage();
   }
 
-  JPanel gridLayPanel(int x, int y) {
-    JPanel panel = new JPanel(new GridBagLayout());
-    panel.setMaximumSize(new Dimension(x, y));
-    panel.setBackground(Color.WHITE);
-    return panel;
-  }
-
-  void setConstraints(GridBagConstraints constraint, int x, int y, Insets insets) {
-    constraint.gridx = x;
-    constraint.gridy = y;
-    if (insets != null) {
-      constraint.insets = insets;
-    }
-  }
 
   ImageIcon makeIcon(boolean added) {
     if (added) {
@@ -140,90 +124,119 @@ public class Classes extends JPanel {
   }
 
   void addClasses() {
-    oodButton = new JButton("  Object-Oriented Design", makeIcon(ood));
-    discreteButton = new JButton("  Discrete Structures",makeIcon(discrete));
-    dbButton = new JButton("  Database Design", makeIcon(db));
-    algoButton = new JButton("  Algorithms and Data", makeIcon(algo));
+    String[] className = {"Object Oriented Design", "Discrete Structures", "Database Design",
+            "Algorithms and Data", "Fundamentals of Computer Science I",
+            "Fundamentals of Computer Science II", "Human Computer Interaction",
+            "Logic and Computation"};
+    boolean[] classBools = {this.ood, this.discrete, this.db, this.algo, this.fundies1,
+            this.fundies2, this.hci, this.lac};
 
-    oodButton.setFont(new Font("TimesRoman", Font.PLAIN, 25));
-    oodButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
-    oodButton.setPreferredSize(new Dimension(150, 20));
-    oodButton.setOpaque(false);
-    oodButton.setContentAreaFilled(false);
+    for (int ii = 0; ii < 8; ii++) {
+      boolean b = classBools[ii];
+      String name = className[ii];
+      JPanel butPan = new JPanel();
+      butPan.setLayout(new BorderLayout());
+      butPan.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+      JButton classButt = classButton(name);
+      classButt.setHorizontalAlignment(SwingConstants.LEFT);
+      JButton addButt = addButton(b);
+      butPan.add(addButt, BorderLayout.LINE_START);
+      butPan.add(classButt, BorderLayout.CENTER);
+      butPan.setPreferredSize(new Dimension(150, 20));
 
-    oodButton.addActionListener(e -> {
-      if (this.ood) {
-        this.vm.showScreen("schedule");
-      }
-      else {
-        oodButton.setIcon(makeIcon(true));
-        this.ood = true;
-        oodButton.revalidate();
-        this.repaint();
-      }
-            }
-            );
+      classButt.addActionListener(e -> {
+        boolean bool;
+        if (name.equals(className[0])) {
+          bool = this.ood;
+        } else if (name.equals(className[1])) {
+          bool = this.discrete;
+        } else if (name.equals(className[2])) {
+          bool = this.db;
+        }  else if (name.equals(className[3])) {
+          bool = this.algo;
+        }  else if (name.equals(className[4])) {
+          bool = this.fundies1;
+        } else if (name.equals(className[5])) {
+          bool = this.fundies2;
+        } else if (name.equals(className[6])){
+          bool = this.hci;
+        } else {
+          bool = this.lac;
+        }
 
-    discreteButton.setFont(new Font("TimesRoman", Font.PLAIN, 25));
-    discreteButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
-    discreteButton.setPreferredSize(new Dimension(150, 20));
-    discreteButton.setOpaque(false);
-    discreteButton.setContentAreaFilled(false);
+        if (bool) {
+          vm.showScreen("schedule", name);
+        }
+      });
 
-    discreteButton.addActionListener(e -> {
-              if (this.discrete) {
-              }
-              else {
-                discreteButton.setIcon(makeIcon(true));
-                this.discrete = true;
-                discreteButton.revalidate();
-                this.repaint();
-              }
-            }
-    );
+      addButt.addActionListener(e -> {
+        boolean bool;
+        if (name.equals(className[0])) {
+          bool = this.ood;
+        } else if (name.equals(className[1])) {
+          bool = this.discrete;
+        } else if (name.equals(className[2])) {
+          bool = this.db;
+        }  else if (name.equals(className[3])) {
+          bool = this.algo;
+        }  else if (name.equals(className[4])) {
+          bool = this.fundies1;
+        } else if (name.equals(className[5])) {
+          bool = this.fundies2;
+        } else if (name.equals(className[6])){
+          bool = this.hci;
+        } else {
+          bool = this.lac;
+        }
 
+        if (bool) {
+          addButt.setIcon(makeIcon(false));
+          butPan.revalidate();
+          this.repaint();
+        } else {
+          addButt.setIcon(makeIcon(true));
+          butPan.revalidate();
+          this.repaint();
+        }
 
-    dbButton.setFont(new Font("TimesRoman", Font.PLAIN, 25));
-    dbButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
-    dbButton.setPreferredSize(new Dimension(150, 20));
-    dbButton.setOpaque(false);
-    dbButton.setContentAreaFilled(false);
+        if (name.equals(className[0])) {
+          this.ood = !this.ood;
+        } else if (name.equals(className[1])) {
+          this.discrete = !this.discrete;
+        } else if (name.equals(className[2])) {
+          this.db = !this.db;
+        }  else if (name.equals(className[3])) {
+          this.algo = !this.algo;
+        }  else if (name.equals(className[4])) {
+          this.fundies1 = !this.fundies1;
+        } else if (name.equals(className[5])) {
+          this.fundies2 = !this.fundies2;
+        } else if (name.equals(className[6])){
+          this.hci = !this.hci;
+        } else {
+          this.lac = !this.lac;
+        }
 
-    dbButton.addActionListener(e -> {
-              if (this.db) {
-              }
-              else {
-                dbButton.setIcon(makeIcon(true));
-                this.db = true;
-                dbButton.revalidate();
-                this.repaint();
-              }
-            }
-    );
-
-
-    algoButton.setFont(new Font("TimesRoman", Font.PLAIN, 25));
-    algoButton.setBorder(BorderFactory.createEmptyBorder(0,35,0,35));
-    algoButton.setPreferredSize(new Dimension(150, 20));
-    algoButton.setOpaque(false);
-    algoButton.setContentAreaFilled(false);
-
-    algoButton.addActionListener(e -> {
-              if (this.algo) {
-              }
-              else {
-                algoButton.setIcon(makeIcon(true));
-                this.algo = true;
-                algoButton.revalidate();
-                this.repaint();
-              }
-            }
-    );
-
-
-    classPanel.add(oodButton);
-    classPanel.add(discreteButton);
-    classPanel.add(dbButton);
-    classPanel.add(algoButton);
+      });
+      classPanel.add(butPan);
+    }
   }
+
+  JButton classButton(String className) {
+    JButton classButt = new JButton("  " + className);
+    classButt.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+    classButt.setOpaque(false);
+    classButt.setContentAreaFilled(false);
+    classButt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    return classButt;
+  }
+
+  JButton addButton(boolean added) {
+    JButton addButt = new JButton(makeIcon(added));
+    addButt.setOpaque(false);
+    addButt.setContentAreaFilled(false);
+    addButt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    return addButt;
+  }
+
 }
